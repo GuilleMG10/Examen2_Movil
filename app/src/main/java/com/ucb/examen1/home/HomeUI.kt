@@ -55,7 +55,7 @@ fun HomeUI(
                 .align(Alignment.TopCenter),
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
-            // Título
+
             Text(
                 text = "Nuestros planes móviles",
                 style = MaterialTheme.typography.headlineSmall,
@@ -71,7 +71,7 @@ fun HomeUI(
                 modifier = Modifier.padding(vertical = 8.dp)
             )
 
-            // CONTENEDOR con flechas y tarjeta del plan
+
             Row(
                 modifier = Modifier
                     .fillMaxWidth()
@@ -79,7 +79,7 @@ fun HomeUI(
                 verticalAlignment = Alignment.CenterVertically,
                 horizontalArrangement = Arrangement.Center
             ){
-                // Botón de flecha izquierda
+
                 IconButton(
                     onClick = { /* Acción izquierda */ },
                     modifier = Modifier
@@ -98,7 +98,7 @@ fun HomeUI(
                     )
                 }
 
-                // Tarjeta del plan
+
                 Column(
                     modifier = Modifier
                         .weight(1f)
@@ -180,7 +180,7 @@ fun HomeUI(
                     }
                 }
 
-                // Botón de flecha derecha
+
                 IconButton(
                     onClick = onGoToRight,
                     modifier = Modifier
@@ -201,7 +201,7 @@ fun HomeUI(
             }
         }
 
-        // Botón inferior
+
         Button(
             onClick = onGoToSend,
             modifier = Modifier
@@ -217,7 +217,6 @@ fun HomeUI(
             Text("Quiero este plan")
         }
 
-        // Botón flotante WhatsApp
         IconButton(
             onClick = {
                 val url = "https://wa.me/$number?text=${Uri.encode(message)}"
