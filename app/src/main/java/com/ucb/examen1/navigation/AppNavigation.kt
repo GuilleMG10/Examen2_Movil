@@ -6,6 +6,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.ucb.examen1.home.HomeUI
+import com.ucb.examen1.home.Home2UI
 
 @Composable
 fun AppNavigation() {
@@ -17,7 +18,17 @@ fun AppNavigation() {
         startDestination = Screens.Home.route
     ) {
         composable(Screens.Home.route) {
-            HomeUI()
+            HomeUI(
+                onGoToSend = {navController.navigate(Screens.Send.route)},
+                onGoToRight = {navController.navigate(Screens.Home2.route)}
+            )
+        }
+
+        composable(Screens.Home2.route) {
+            Home2UI (
+                onGoToSend = {navController.navigate(Screens.Send.route)},
+                onGoToLeft = {navController.navigate(Screens.Home.route)},
+            )
         }
     }
 }

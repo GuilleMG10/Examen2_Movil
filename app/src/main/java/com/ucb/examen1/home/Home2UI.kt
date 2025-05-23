@@ -1,6 +1,5 @@
 package com.ucb.examen1.home
 
-
 import android.content.Intent
 import android.net.Uri
 import androidx.compose.foundation.background
@@ -39,7 +38,7 @@ import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 
 @Composable
-fun HomeBUI(
+fun Home2UI(
     viewModel: HomeViewModel = viewModel(),
     onGoToSend: () -> Unit,
     onGoToLeft: () -> Unit
@@ -56,7 +55,6 @@ fun HomeBUI(
                 .align(Alignment.TopCenter),
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
-            // Título
             Text(
                 text = "Nuestros planes móviles",
                 style = MaterialTheme.typography.headlineSmall,
@@ -72,7 +70,6 @@ fun HomeBUI(
                 modifier = Modifier.padding(vertical = 8.dp)
             )
 
-            // CONTENEDOR con flechas y tarjeta del plan
             Row(
                 modifier = Modifier
                     .fillMaxWidth()
@@ -80,7 +77,6 @@ fun HomeBUI(
                 verticalAlignment = Alignment.CenterVertically,
                 horizontalArrangement = Arrangement.Center
             ){
-                // Botón de flecha izquierda
                 IconButton(
                     onClick = onGoToLeft,
                     modifier = Modifier
@@ -99,7 +95,6 @@ fun HomeBUI(
                     )
                 }
 
-                // Tarjeta del plan
                 Column(
                     modifier = Modifier
                         .weight(1f)
@@ -181,7 +176,7 @@ fun HomeBUI(
                     }
                 }
 
-                // Botón de flecha derecha
+
                 IconButton(
                     onClick = { /* Acción derecha */ },
                     modifier = Modifier
@@ -202,7 +197,6 @@ fun HomeBUI(
             }
         }
 
-        // Botón inferior
         Button(
             onClick = onGoToSend,
             modifier = Modifier
@@ -218,7 +212,6 @@ fun HomeBUI(
             Text("Quiero este plan")
         }
 
-        // Botón flotante WhatsApp
         IconButton(
             onClick = {
                 val url = "https://wa.me/$number?text=${Uri.encode(message)}"

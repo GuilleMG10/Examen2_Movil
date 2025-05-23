@@ -39,7 +39,9 @@ import androidx.lifecycle.viewmodel.compose.viewModel
 
 @Composable
 fun HomeUI(
-    viewModel: HomeViewModel = viewModel()
+    viewModel: HomeViewModel = viewModel(),
+    onGoToSend: () -> Unit,
+    onGoToRight: () -> Unit
 ) {
     val context = LocalContext.current
     val message = viewModel.message.value
@@ -53,7 +55,7 @@ fun HomeUI(
                 .align(Alignment.TopCenter),
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
-
+            // Título
             Text(
                 text = "Nuestros planes móviles",
                 style = MaterialTheme.typography.headlineSmall,
@@ -69,7 +71,7 @@ fun HomeUI(
                 modifier = Modifier.padding(vertical = 8.dp)
             )
 
-
+            // CONTENEDOR con flechas y tarjeta del plan
             Row(
                 modifier = Modifier
                     .fillMaxWidth()
@@ -77,7 +79,7 @@ fun HomeUI(
                 verticalAlignment = Alignment.CenterVertically,
                 horizontalArrangement = Arrangement.Center
             ){
-
+                // Botón de flecha izquierda
                 IconButton(
                     onClick = { /* Acción izquierda */ },
                     modifier = Modifier
@@ -96,7 +98,7 @@ fun HomeUI(
                     )
                 }
 
-
+                // Tarjeta del plan
                 Column(
                     modifier = Modifier
                         .weight(1f)
@@ -178,9 +180,9 @@ fun HomeUI(
                     }
                 }
 
-
+                // Botón de flecha derecha
                 IconButton(
-                    onClick = { /* Acción derecha */ },
+                    onClick = onGoToRight,
                     modifier = Modifier
                         .padding(start = 8.dp)
                         .size(40.dp)
@@ -199,8 +201,9 @@ fun HomeUI(
             }
         }
 
+        // Botón inferior
         Button(
-            onClick = { /* Acción del botón inferior */ },
+            onClick = onGoToSend,
             modifier = Modifier
                 .align(Alignment.BottomCenter)
                 .fillMaxWidth()
@@ -211,10 +214,10 @@ fun HomeUI(
                 contentColor = Color.White
             )
         ) {
-            Text("Quiero el plan")
+            Text("Quiero este plan")
         }
 
-
+        // Botón flotante WhatsApp
         IconButton(
             onClick = {
                 val url = "https://wa.me/$number?text=${Uri.encode(message)}"
