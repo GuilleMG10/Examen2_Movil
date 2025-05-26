@@ -38,11 +38,11 @@ import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 
 @Composable
-fun Home2UI(
+fun Home3UI(
     viewModel: HomeViewModel = viewModel(),
     onGoToSend: () -> Unit,
     onGoToLeft: () -> Unit,
-    onGoToRight: () -> Unit,
+    onGoToRight: () -> Unit
 ) {
     val context = LocalContext.current
     val message = viewModel.message.value
@@ -56,6 +56,7 @@ fun Home2UI(
                 .align(Alignment.TopCenter),
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
+            // Título
             Text(
                 text = "Nuestros planes móviles",
                 style = MaterialTheme.typography.headlineSmall,
@@ -78,6 +79,7 @@ fun Home2UI(
                 verticalAlignment = Alignment.CenterVertically,
                 horizontalArrangement = Arrangement.Center
             ){
+
                 IconButton(
                     onClick = onGoToLeft,
                     modifier = Modifier
@@ -96,6 +98,7 @@ fun Home2UI(
                     )
                 }
 
+
                 Column(
                     modifier = Modifier
                         .weight(1f)
@@ -108,7 +111,7 @@ fun Home2UI(
                     horizontalAlignment = Alignment.CenterHorizontally
                 ){
                     Text(
-                        text = "Plan FLEX 8",
+                        text = "Plan FLEX 10",
                         style = MaterialTheme.typography.titleLarge,
                         color = Color(0xFFF57261)
                     )
@@ -120,7 +123,7 @@ fun Home2UI(
                     ) {
                         Text("Antes", color = Color.Gray)
                         Text(
-                            text = " \$370 ",
+                            text = " \$470 ",
                             style = MaterialTheme.typography.bodyLarge.copy(
                                 textDecoration = TextDecoration.LineThrough,
                                 fontWeight = FontWeight.Bold
@@ -137,7 +140,7 @@ fun Home2UI(
                     ) {
                         Text("Ahora", color = Color.Gray)
                         Text(
-                            text = " \$299 ",
+                            text = " \$399 ",
                             style = MaterialTheme.typography.headlineMedium.copy(
                                 fontWeight = FontWeight.ExtraBold
                             ),
@@ -147,7 +150,7 @@ fun Home2UI(
                     }
 
                     Text(
-                        text = "5GB",
+                        text = "10GB",
                         style = MaterialTheme.typography.titleMedium.copy(
                             fontWeight = FontWeight.Black
                         ),
@@ -177,7 +180,7 @@ fun Home2UI(
                     }
                 }
 
-
+                // Botón de flecha derecha
                 IconButton(
                     onClick = onGoToRight,
                     modifier = Modifier
@@ -198,6 +201,7 @@ fun Home2UI(
             }
         }
 
+        // Botón inferior
         Button(
             onClick = onGoToSend,
             modifier = Modifier
@@ -212,6 +216,7 @@ fun Home2UI(
         ) {
             Text("Quiero este plan")
         }
+
 
         IconButton(
             onClick = {

@@ -41,7 +41,8 @@ import androidx.lifecycle.viewmodel.compose.viewModel
 fun HomeUI(
     viewModel: HomeViewModel = viewModel(),
     onGoToSend: () -> Unit,
-    onGoToRight: () -> Unit
+    onGoToRight: () -> Unit,
+    onGoToLeft: () -> Unit
 ) {
     val context = LocalContext.current
     val message = viewModel.message.value
@@ -81,7 +82,7 @@ fun HomeUI(
             ){
 
                 IconButton(
-                    onClick = { /* Acción izquierda */ },
+                    onClick = onGoToLeft,
                     modifier = Modifier
                         .padding(end = 8.dp)
                         .size(40.dp)
